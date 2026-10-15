@@ -1,42 +1,42 @@
-﻿/*************************
-* Автор: Прохоров В.В.   *
-* Дата: 06.10.2026       *
-* Название: Лаб. No2     *
-* Вариант: 25            *
-*************************/
+/*********************************************
+* Автор: Прохоров В.В.                       *
+* Дата: 06.10.2026                           *
+* Название: Циклы с пред- и постусловием     *
+* Вариант: 25                                *
+*********************************************/
 
 #include <iostream>
 
 using namespace std;
 
 int main() {
-
-	const double Res0 = 1.7;
-	const double T0 = 298.0;
-	const double p = 4.0 * pow(10, 3);
-	const double firstStep = 10.0;
-	const double secondStep = 25.0;
-	const double T = 20.0;
-	const double changePointT = 50.0;
-	const double finishT = 200.0;
-	int stepIndex = 0;
-	double argumentT = T;
-	double Res;
+	double Res0, T0, p, firstStep, secondStep, T, changePointT, finishT, Res, argumentT;
+	int stepIndex;
+	Res0 = 1.7;
+	T0 = 298.0;
+	p = 4.0 * pow(10, 3);
+	stepIndex = 0;
+	cout << "Enter start Tempature = "; cin << T;
+	cout << "Enter finish Tempature = "; cin << finishT;
+	cout << "Enter first step of Tempature change = "; cin << firstStep;
+	cout << "Enter second step of Tempature change = "; cin << secondStep;
+	cout << "Enter Tempature where start second step = "; cin << changePointT;
+	argumentT = T;
 
 	do {
-		Res = Res0 * ( (p * (T0 - argumentT) ) / (T0 * T) );
-		cout << argumentT << " " << Res << "\n";
-		++stepIndex;
-		argumentT = T + stepIndex * firstStep;
-	}while (argumentT <= changePointT);
+	Res = Res0 * ((p * (T0 - argumentT)) / (T0 * T));
+	cout << argumentT << " " << Res << "\n";
+	++stepIndex;
+	argumentT = T + stepIndex * firstStep;
+	} while (argumentT <= changePointT);
 
 	stepIndex = 1;
 	argumentT = changePointT + stepIndex * secondStep;
 	while (argumentT <= finishT) {
-		Res = Res0 * ( (p * (T0 - argumentT) ) / (T0 * T) );
-		cout << argumentT << " " << Res << "\n";
-		++stepIndex;
-		argumentT = changePointT + stepIndex * secondStep;
+	Res = Res0 * ((p * (T0 - argumentT)) / (T0 * T));
+	cout << argumentT << " " << Res << "\n";
+	++stepIndex;
+	argumentT = changePointT + stepIndex * secondStep;
 	}
 
 }
